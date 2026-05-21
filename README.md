@@ -105,12 +105,14 @@ This project demonstrates:
 ```bash id="uz0izn"
 SpeedyType/
 │
+├── LICENSE
 ├── README.md
+├── data.js
 ├── index.html
 ├── styles.css
 ├── script.js
-├── utils.js
-└── data.js
+└──  utils.js
+
 
 ```
 
