@@ -1,0 +1,31 @@
+{
+  "name": "speedytype",
+  "version": "1.0.0",
+  "description": "A free, responsive typing speed test web app with English and Hindi support, live analytics, and theme switching.",
+  "private": true,
+  "author": "Shivesh Mukund Tripathi <you@example.com> (https://github.com/shiveshmukund)",
+  "license": "MIT",
+  "homepage": "https://shiveshmukund.github.io/speedytype/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shiveshmukund/speedytype.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shiveshmukund/speedytype/issues"
+  },
+  "keywords": [
+    "typing-test",
+    "wpm",
+    "typing-speed",
+    "typing-practice",
+    "javascript",
+    "vanilla-js"
+  ],
+  "scripts": {
+    "start": "npx http-server -c-1 . -p 8000",
+    "preview": "npx http-server . -p 8000"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

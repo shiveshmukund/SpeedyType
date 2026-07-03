@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online typing speed test. Measure your WPM and accuracy in English or Hindi, track progress with live analytics, and improve your typing skills — no sign-up required.">
+    <meta name="keywords" content="typing speed test, WPM test, typing test online, free typing test, typing practice, Hindi typing test, words per minute, typing accuracy test, touch typing practice">
+    <meta name="author" content="Shivesh Mukund Tripathi">
+    <meta name="theme-color" content="#0f3460">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://shiveshmukund.github.io/speedytype/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://shiveshmukund.github.io/speedytype/">
+    <meta property="og:title" content="SpeedyType - Free Online Typing Speed Test (WPM & Accuracy)">
+    <meta property="og:description" content="Measure your typing speed and accuracy in English or Hindi with live analytics, a typing coach, and four themes. 100% free, no sign-up.">
+    <meta property="og:image" content="https://shiveshmukund.github.io/speedytype/og-image.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://shiveshmukund.github.io/speedytype/">
+    <meta name="twitter:title" content="SpeedyType - Free Online Typing Speed Test (WPM & Accuracy)">
+    <meta name="twitter:description" content="Measure your typing speed and accuracy in English or Hindi with live analytics, a typing coach, and four themes. 100% free, no sign-up.">
+    <meta name="twitter:image" content="https://shiveshmukund.github.io/speedytype/og-image.png">
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%2300d4ff'/%3E%3Ctext x='50' y='60' text-anchor='middle' font-family='Segoe UI, sans-serif' font-size='50' fill='white'%3ES%3C/text%3E%3C/svg%3E" />
+    <title>SpeedyType - Free Online Typing Speed Test (WPM & Accuracy Tracker)</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Structured data for search engines -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "SpeedyType",
+        "url": "https://shiveshmukund.github.io/speedytype/",
+        "description": "Free online typing speed test with English and Hindi support, live WPM/accuracy analytics, a typing coach, and four visual themes.",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "inLanguage": ["en", "hi"]
+    }
+    </script>
+</head>
+<body>
+    <a href="#typing-input" class="skip-link">Skip to typing test</a>
+    <noscript>
+        <div style="padding:2rem; text-align:center; font-family:sans-serif;">
+            SpeedyType needs JavaScript enabled to run. Please enable JavaScript in your browser settings and reload the page.
+        </div>
+    </noscript>
+
+    <!-- Header/Navbar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>SpeedyType</h1>
+            </div>
+            
+            <div class="nav-controls-wrapper">
+                <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation menu" title="Open navigation menu" aria-expanded="false">☰</button>
+
+                <!-- Overlay panel: contains all header controls (hidden by default) -->
+                <div class="nav-overlay hidden" id="nav-overlay">
+                    <!-- Typing Mode Selector -->
+                    <div class="control-group">
+                        <label for="typing-mode">Mode:</label>
+                        <select id="typing-mode">
+                            <option value="words">Words</option>
+                            <option value="sentences">Sentences</option>
+                            <option value="paragraph">Paragraph</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Difficulty Selector -->
+                    <div class="control-group">
+                        <label for="difficulty">Difficulty:</label>
+                        <select id="difficulty">
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate" selected>Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                        </select>
+                    </div>
+
+                    <!-- Timer Selector -->
+                    <div class="control-group">
+                        <label for="timer-select">Time:</label>
+                        <select id="timer-select">
+                            <option value="15">15s</option>
+                            <option value="30">30s</option>
+                            <option value="60" selected>60s</option>
+                            <option value="120">120s</option>
+                        </select>
+                    </div>
+
+                    <!-- Language Selector -->
+                    <div class="control-group">
+                        <label for="language-select">Language:</label>
+                        <select id="language-select">
+                            <option value="english" selected>English</option>
+                            <option value="hindi">Hindi</option>
+                        </select>
+                    </div>
+
+                    <div class="nav-controls">
+                        <!-- Theme Switch -->
+                        <button class="theme-toggle" id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">🌙</button>
+
+                        <!-- Sound Toggle -->
+                        <button class="sound-toggle" id="sound-toggle" title="Toggle sound" aria-label="Toggle sound">🔊</button>
+
+                        <!-- Analytics Button -->
+                        <button class="analytics-btn" id="analytics-btn" title="Open analytics" aria-label="Open analytics">📈</button>
+
+                        <!-- Settings Button -->
+                        <button class="settings-btn" id="settings-btn" title="Open settings" aria-label="Open settings">⚙️</button>
+                    </div>
+                </div> <!-- end .nav-overlay -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Stats Display -->
+        <div class="stats-container" id="stats-container">
+            <div class="stat-box">
+                <div class="stat-label">WPM</div>
+                <div class="stat-value" id="wpm-display">0</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Accuracy</div>
+                <div class="stat-value" id="accuracy-display">100%</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Errors</div>
+                <div class="stat-value" id="errors-display">0</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Time</div>
+                <div class="stat-value" id="timer-display">60</div>
+            </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <!-- Typing Area -->
+        <div class="typing-section">
+            <!-- Text Display Area -->
+            <div class="text-display" id="text-display">
+                <p id="display-text" class="display-text">Ready to type? Select your settings and start typing...</p>
+            </div>
+
+            <!-- Input Area -->
+            <input 
+                type="text" 
+                id="typing-input" 
+                class="typing-input" 
+                placeholder="Click here and start typing..."
+                autocomplete="off"
+                autocapitalize="off"
+                autocorrect="off"
+                spellcheck="false"
+                aria-label="Typing input area - type the text shown above"
+            >
+        </div>
+
+        <!-- Typing Coach Messages -->
+        <div class="coach-message" id="coach-message" aria-live="polite"></div>
+
+        <!-- Results Panel (hidden by default) -->
+        <div class="results-panel hidden" id="results-panel">
+            <h2>Test Complete!</h2>
+            <div class="results-grid">
+                <div class="result-item">
+                    <div class="result-label">Final WPM</div>
+                    <div class="result-value" id="final-wpm">0</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-label">Accuracy</div>
+                    <div class="result-value" id="final-accuracy">0%</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-label">Total Errors</div>
+                    <div class="result-value" id="final-errors">0</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-label">Characters Typed</div>
+                    <div class="result-value" id="final-chars">0</div>
+                </div>
+            </div>
+            <div class="results-details">
+                <h3>Error Analysis</h3>
+                <div id="error-analysis"></div>
+                <h3>Most Mistyped Keys</h3>
+                <div id="mistyped-keys"></div>
+            </div>
+            <button class="restart-btn" id="restart-btn">Start New Test</button>
+        </div>
+
+        <!-- Keyboard Shortcuts Info -->
+        <div class="shortcuts-info">
+            <p><strong>Shortcuts:</strong> Tab - Restart | Esc - Settings | Ctrl+R - New Test</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <a
+                class="star-cta"
+                href="https://github.com/shiveshmukund/speedytype"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Star SpeedyType on GitHub"
+            >
+                <span aria-hidden="true">⭐</span> Star this project on GitHub
+            </a>
+
+            <p class="footer-signature">
+                Built with ❤️ by
+                <a href="https://github.com/shiveshmukund" target="_blank" rel="noopener noreferrer">Shivesh Mukund Tripathi</a>
+                &nbsp;·&nbsp;
+                <a href="https://github.com/shiveshmukund" target="_blank" rel="noopener noreferrer">GitHub</a>
+                &nbsp;·&nbsp;
+                <a href="https://linkedin.com/in/shiveshmukund" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                &nbsp;·&nbsp;
+                <a href="https://shiveshmukund.github.io/Portfolio_Website/" target="_blank" rel="noopener noreferrer">Portfolio</a>
+            </p>
+
+            <p class="footer-meta">
+                &copy; <span id="footer-year">2026</span> SpeedyType. All typing data stays on your device — nothing is tracked or uploaded.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Settings Modal -->
+    <div class="modal hidden" id="settings-modal" role="dialog" aria-modal="true" aria-labelledby="settings-modal-title">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="settings-modal-title">Settings</h2>
+                <button class="close-btn" id="close-settings">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="setting-group">
+                    <label>
+                        <input type="checkbox" id="sound-setting" checked>
+                        Enable Sound Effects
+                    </label>
+                </div>
+                <div class="setting-group">
+                    <label>
+                        <input type="checkbox" id="caret-setting" checked>
+                        Show Caret
+                    </label>
+                </div>
+                <div class="setting-group">
+                    <label>
+                        <input type="checkbox" id="live-stats-setting" checked>
+                        Show Live Stats
+                    </label>
+                </div>
+                <div class="setting-group">
+                    <label>
+                        <input type="checkbox" id="coach-setting" checked>
+                        Enable Typing Coach
+                    </label>
+                </div>
+                <hr>
+                <button class="btn-primary" id="clear-stats-btn">Clear All Statistics</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Typing Guide/Tutorial Modal -->
+    <div class="modal hidden" id="guide-modal" role="dialog" aria-modal="true" aria-labelledby="guide-modal-title">
+        <div class="modal-content guide-content">
+            <div class="modal-header">
+                <h2 id="guide-modal-title">Typing Guide - Hand Position</h2>
+                <button class="close-btn" id="close-guide">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="guide-section">
+                    <h3>Home Row Position</h3>
+                    <div class="keyboard-diagram">
+                        <div class="key-row">
+                            <span class="key left-pinky">A</span>
+                            <span class="key left-ring">S</span>
+                            <span class="key left-middle">D</span>
+                            <span class="key left-index">F</span>
+                            <span class="key">J</span>
+                            <span class="key right-index">K</span>
+                            <span class="key right-middle">L</span>
+                            <span class="key right-ring">;</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="guide-section">
+                    <h3>Finger Mapping</h3>
+                    <ul>
+                        <li><strong>Left Pinky:</strong> A, Q, Z</li>
+                        <li><strong>Left Ring:</strong> S, W, X</li>
+                        <li><strong>Left Middle:</strong> D, E, C</li>
+                        <li><strong>Left Index:</strong> F, R, V, T, G, B</li>
+                        <li><strong>Right Index:</strong> J, U, M, Y, H, N</li>
+                        <li><strong>Right Middle:</strong> K, I, ,</li>
+                        <li><strong>Right Ring:</strong> L, O, .</li>
+                        <li><strong>Right Pinky:</strong> ;, P, /</li>
+                    </ul>
+                </div>
+                <div class="guide-section">
+                    <h3>Typing Tips</h3>
+                    <ul>
+                        <li>Keep your back straight and relaxed</li>
+                        <li>Keep your wrists straight, not bent</li>
+                        <li>Keep your feet flat on the floor</li>
+                        <li>Eyes should be on the text, not the keyboard</li>
+                        <li>Use all fingers, not just a few</li>
+                    </ul>
+                </div>
+                <label class="checkbox-label">
+                    <input type="checkbox" id="disable-guide" checked>
+                    Don't show this again
+                </label>
+                <button class="btn-primary" id="start-guide-btn">Start Typing</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Analytics Dashboard Modal -->
+    <div class="modal hidden" id="analytics-modal" role="dialog" aria-modal="true" aria-labelledby="analytics-modal-title">
+        <div class="modal-content analytics-content">
+            <div class="modal-header">
+                <h2 id="analytics-modal-title">Analytics Dashboard</h2>
+                <button class="close-btn" id="close-analytics">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="analytics-grid">
+                    <div class="analytics-card">
+                        <h3>Best WPM</h3>
+                        <div class="analytics-value" id="best-wpm">0</div>
+                    </div>
+                    <div class="analytics-card">
+                        <h3>Average WPM</h3>
+                        <div class="analytics-value" id="avg-wpm">0</div>
+                    </div>
+                    <div class="analytics-card">
+                        <h3>Best Accuracy</h3>
+                        <div class="analytics-value" id="best-accuracy">0%</div>
+                    </div>
+                    <div class="analytics-card">
+                        <h3>Total Tests</h3>
+                        <div class="analytics-value" id="total-tests">0</div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <h3>Speed Trends</h3>
+                    <canvas id="speed-chart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Accuracy Trends</h3>
+                    <canvas id="accuracy-chart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Weak Keys</h3>
+                    <div id="weak-keys-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="data.js"></script>
+    <script src="utils.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
