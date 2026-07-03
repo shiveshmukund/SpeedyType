@@ -5,7 +5,7 @@
 [![Made with Vanilla JS](https://img.shields.io/badge/Made%20with-Vanilla%20JS-f7df1e?style=flat-square)](https://github.com/shiveshmukund/speedytype)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/shiveshmukund/speedytype/pulls)
 
-**🔗 Live demo:** [shiveshmukund.github.io/speedytype](https://shiveshmukund.github.io/speedytype/)
+**🔗 Live demo:** [shiveshmukund.github.io/speedytype](https://shiveshmukund.github.io/SpeedyType/)
 
 > ⭐ **If SpeedyType helps you type faster, please consider starring the repo** — it helps other people discover the project and takes two seconds.
 
