@@ -1,4 +1,4 @@
-# SpeedyType - Interactive Typing Speed Test 🚀
+# SpeedyType - Interactive Typing Speed Test 🚀 
 
 [![GitHub stars](https://img.shields.io/github/stars/shiveshmukund/speedytype?style=flat-square)](https://github.com/shiveshmukund/speedytype/stargazers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
