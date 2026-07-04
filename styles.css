@@ -1514,12 +1514,11 @@ hr {
         border-radius: var(--radius-sm);
     }
 
-    /* Ensure touch targets are large enough on mobile */
+    /* Ensure touch targets are large enough on mobile (icon-only buttons) */
     .theme-toggle,
     .sound-toggle,
     .settings-btn,
-    .analytics-btn,
-    .restart-btn {
+    .analytics-btn {
         width: 44px;
         height: 44px;
         min-width: 44px;
