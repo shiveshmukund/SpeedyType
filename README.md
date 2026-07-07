@@ -359,8 +359,6 @@ This project is licensed under the [MIT License](LICENSE) — free to use, modif
 
 Built as a comprehensive typing practice application inspired by professional platforms like Monkeytype and Keybr, with unique features like Indian language support, advanced analytics, and an intelligent typing coach.
 
-**Created by [Shivesh Mukund Tripathi](https://github.com/shiveshmukund)** — [GitHub](https://github.com/shiveshmukund) · [LinkedIn](https://linkedin.com/in/shiveshmukund) · [Portfolio](https://shiveshmukund.github.io/Portfolio_Website/)
-
 If this project helped you, a ⭐ on the repo goes a long way — thank you!
 
 ---
